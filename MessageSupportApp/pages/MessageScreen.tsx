@@ -644,9 +644,9 @@ export default function MessageScreen() {
         console.log(messages)
         const debitMessages = messages.filter((msg: any) =>
           msg.body.toLowerCase().includes('debited') ||
-          // msg.body.toLowerCase().includes('debit') 
-          msg.body.toLowerCase().includes('debit') ||
-          msg.body.toLowerCase().includes('credited') 
+          msg.body.toLowerCase().includes('debit') 
+          // msg.body.toLowerCase().includes('debit') ||
+          // msg.body.toLowerCase().includes('credited') 
         );
 
         if (debitMessages.length > 0) {
