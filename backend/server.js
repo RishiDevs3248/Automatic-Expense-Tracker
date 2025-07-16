@@ -14,6 +14,7 @@ app.use(cors({
 app.use(cookieParser());
 app.use(express.json());
 
+
 // Routes
 app.use('/person', require('./routes/personRoutes'));
 app.use('/expense', require('./routes/expenseRoutes'));

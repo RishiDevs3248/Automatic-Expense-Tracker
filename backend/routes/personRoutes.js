@@ -34,6 +34,12 @@ router.post('/register', async (req, res) => {
 // login
 router.post('/login', async (req, res) => {
     try {
+
+
+        console.log("-----------------------------------------------------------------------")
+        // console.log(personExist)
+        console.log("Hit /login")
+        console.log("-----------------------------------------------------------------------")
         const { email, password } = req.body;
 
         const personExist = await Person.findOne({ email });
@@ -62,34 +68,36 @@ router.post('/login', async (req, res) => {
 
 // app - login
 router.post('/applogin', async (req, res) => {
-  try {
-    const { email, password } = req.body;
+    try {
 
-    const personExist = await Person.findOne({ email });
-    console.log("-----------------------------------------------------------------------")
-    console.log(personExist)
-    console.log("-----------------------------------------------------------------------")
-    if (!personExist) {
-      return res.status(400).json({ msg: `Please register ❌` });
+        const { email, password } = req.body;
+
+        const personExist = await Person.findOne({ email });
+        console.log("-----------------------------------------------------------------------")
+        // console.log(personExist)
+        console.log("Hit /applogin")
+        console.log("-----------------------------------------------------------------------")
+        if (!personExist) {
+            return res.status(400).json({ msg: `Please register ❌` });
+        }
+
+        const isMatch = await bcrypt.compare(password, personExist.password);
+        if (!isMatch) {
+            return res.status(401).json({ msg: "Invalid password ❌" });
+        }
+
+        const token = createJwtToken(email); // or (personExist._id) if your tokens are based on ID
+
+        // ✅ Log to backend console
+        console.log(`✅ User logged in: ${personExist.email} at ${new Date().toLocaleString()}`);
+
+        // ✅ Send only token to match frontend expectations
+        res.status(200).json({ token });
+
+    } catch (err) {
+        console.error("❌ Error in /applogin:", err);
+        res.status(500).json({ msg: 'Internal server error' });
     }
-
-    const isMatch = await bcrypt.compare(password, personExist.password);
-    if (!isMatch) {
-      return res.status(401).json({ msg: "Invalid password ❌" });
-    }
-
-    const token = createJwtToken(email); // or (personExist._id) if your tokens are based on ID
-
-    // ✅ Log to backend console
-    console.log(`✅ User logged in: ${personExist.email} at ${new Date().toLocaleString()}`);
-
-    // ✅ Send only token to match frontend expectations
-    res.status(200).json({ token });
-
-  } catch (err) {
-    console.error("❌ Error in /applogin:", err);
-    res.status(500).json({ msg: 'Internal server error' });
-  }
 });
 
 
@@ -101,7 +109,7 @@ router.post('/logout', isloggedin, async (req, res) => {
         res
             .cookie("token", "")
             .status(200)
-            .json({ message: "Logout successful ✅", user : req.person});
+            .json({ message: "Logout successful ✅", user: req.person });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
