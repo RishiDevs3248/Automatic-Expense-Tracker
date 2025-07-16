@@ -114,5 +114,17 @@ router.post('/logout', isloggedin, async (req, res) => {
 })
 
 
+// user data 
+router.get('/user', isloggedin, async (req, res) => {
+    try {
+        res
+            .status(200)
+            .json({user: req.person });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
+
+
 module.exports = router;
 
