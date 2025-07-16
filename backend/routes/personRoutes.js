@@ -34,15 +34,13 @@ router.post('/register', async (req, res) => {
 // login
 router.post('/login', async (req, res) => {
     try {
-
-
         console.log("-----------------------------------------------------------------------")
         // console.log(personExist)
         console.log("Hit /login")
         console.log("-----------------------------------------------------------------------")
         const { email, password } = req.body;
 
-        const personExist = await Person.findOne({ email });
+        const personExist = await Person.findOne({email});
         if (!personExist) {
             return res.json({ "msg": `Please register ❌ ` });
         }
@@ -55,7 +53,7 @@ router.post('/login', async (req, res) => {
         res
             .cookie("token", createJwtToken(email))
             .status(200)
-            .json({ message: "Login successful ✅", user: personExist });
+            .json({ message: "Login successful ✅", user: personExist ,redirect: "http://localhost:5173/Dashboard" });
 
 
     } catch (err) {
