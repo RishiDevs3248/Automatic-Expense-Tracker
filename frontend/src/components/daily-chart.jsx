@@ -78,7 +78,7 @@ export function DailyChart({ onBarClick }) {
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm text-muted-foreground">Total (7 days)</p>
-          <p className="text-2xl font-bold">${totalExpenses.toFixed(2)}</p>
+          <p className="text-2xl font-bold">{totalExpenses.toFixed(2)} Rs</p>
         </div>
       </div>
 
@@ -94,8 +94,8 @@ export function DailyChart({ onBarClick }) {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>
             <XAxis dataKey="displayDate" tickLine={false} axisLine={false} className="text-xs" />
-            <YAxis tickLine={false} axisLine={false} className="text-xs" tickFormatter={(value) => `$${value}`} />
-            <ChartTooltip content={<ChartTooltipContent />} formatter={(value) => [`$${value}`, "Total Expenses"]} />
+            <YAxis tickLine={false} axisLine={false} className="text-xs" tickFormatter={(value) => `${value} Rs`} />
+            <ChartTooltip content={<ChartTooltipContent />} formatter={(value) => [`${value} Rs `, "Total Expenses"]} />
             <Bar
               dataKey="total"
               fill="var(--color-total)"

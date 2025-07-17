@@ -79,11 +79,11 @@ export function MonthlyChart({ onBarClick }) {
       <div className="grid grid-cols-2 gap-4">
         <div>
           <p className="text-sm text-muted-foreground">Total (12 months)</p>
-          <p className="text-2xl font-bold">${totalExpenses.toFixed(2)}</p>
+          <p className="text-2xl font-bold">{totalExpenses.toFixed(2)} Rs</p>
         </div>
         <div>
           <p className="text-sm text-muted-foreground">Monthly Average</p>
-          <p className="text-2xl font-bold">${averageMonthly.toFixed(2)}</p>
+          <p className="text-2xl font-bold">{averageMonthly.toFixed(2)} Rs</p>
         </div>
       </div>
 
@@ -99,8 +99,8 @@ export function MonthlyChart({ onBarClick }) {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>
             <XAxis dataKey="displayMonth" tickLine={false} axisLine={false} className="text-xs" />
-            <YAxis tickLine={false} axisLine={false} className="text-xs" tickFormatter={(value) => `$${value}`} />
-            <ChartTooltip content={<ChartTooltipContent />} formatter={(value) => [`$${value}`, "Monthly Expenses"]} />
+            <YAxis tickLine={false} axisLine={false} className="text-xs" tickFormatter={(value) => `${value} Rs`} />
+            <ChartTooltip content={<ChartTooltipContent />} formatter={(value) => [`${value} Rs `, "Monthly Expenses"]} />
             <Bar
               dataKey="total"
               fill="var(--color-total)"

@@ -94,7 +94,7 @@ export default function LandingPage() {
                                             <div className="space-y-2">
                                                 <div className="flex justify-between">
                                                     <span className="text-sm text-gray-600">Total Spent</span>
-                                                    <span className="font-semibold">$2,847.50</span>
+                                                    <span className="font-semibold">2,847.50 Rs</span>
                                                 </div>
                                                 <div className="w-full bg-gray-200 rounded-full h-2">
                                                     <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full w-3/4"></div>
@@ -103,19 +103,19 @@ export default function LandingPage() {
                                             <div className="grid grid-cols-2 gap-4 text-sm">
                                                 <div>
                                                     <div className="text-gray-600">Food & Dining</div>
-                                                    <div className="font-semibold">$847.20</div>
+                                                    <div className="font-semibold">847.20 Rs</div>
                                                 </div>
                                                 <div>
                                                     <div className="text-gray-600">Transportation</div>
-                                                    <div className="font-semibold">$234.80</div>
+                                                    <div className="font-semibold">234.80 Rs</div>
                                                 </div>
                                                 <div>
                                                     <div className="text-gray-600">Shopping</div>
-                                                    <div className="font-semibold">$456.30</div>
+                                                    <div className="font-semibold">456.30 Rs</div>
                                                 </div>
                                                 <div>
                                                     <div className="text-gray-600">Utilities</div>
-                                                    <div className="font-semibold">$189.90</div>
+                                                    <div className="font-semibold">189.90 Rs</div>
                                                 </div>
                                             </div>
                                         </CardContent>

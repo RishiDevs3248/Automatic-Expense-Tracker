@@ -171,6 +171,25 @@ export default function Dashboard() {
     fetchRecentExpenses()
   }, [])
 
+  function handleLogout() {
+    fetch("http://localhost:3000/person/logout", {
+      method: "POST", // or "GET", depending on your backend
+      credentials: "include", // include cookies if using sessions
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Redirect to login page or home
+          window.location.href = "/login";
+        } else {
+          alert("Logout failed");
+        }
+      })
+      .catch((error) => {
+        console.error("Logout error:", error);
+      });
+  }
+
+
   // Calculate category breakdown from fetched expenses
   const calculateCategoryBreakdown = () => {
     const categoryMap = new Map()
@@ -455,11 +474,11 @@ export default function Dashboard() {
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                {/* <DropdownMenuItem>
                   <Settings className="mr-2 h-4 w-4" />
                   Settings
-                </DropdownMenuItem>
-                <DropdownMenuItem>
+                </DropdownMenuItem> */}
+                <DropdownMenuItem onClick={handleLogout}>
                   <LogOut className="mr-2 h-4 w-4" />
                   Log out
                 </DropdownMenuItem>
@@ -478,8 +497,8 @@ export default function Dashboard() {
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">
-                {summaryData.loading ? "Loading..." : `$${summaryData.totalExpenses.toFixed(2)}`}
+              <div className="text-2xl font-bold"> 
+                {summaryData.loading ? "Loading..." : `${summaryData.totalExpenses.toFixed(2)} Rs`}
               </div>
               <p className="text-xs text-muted-foreground">Last 7 days total</p>
             </CardContent>
@@ -491,7 +510,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {summaryData.loading ? "Loading..." : `$${summaryData.todayTotal.toFixed(2)}`}
+                {summaryData.loading ? "Loading..." : `${summaryData.todayTotal.toFixed(2)} Rs`}
               </div>
               <p className="text-xs text-muted-foreground">
                 {!summaryData.loading && summaryData.yesterdayTotal > 0 ? (
@@ -539,7 +558,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {summaryData.loading ? "Loading..." : `$${(summaryData.totalExpenses / 7).toFixed(2)}`}
+                {summaryData.loading ? "Loading..." : `${(summaryData.totalExpenses / 7).toFixed(2)} Rs`}
               </div>
               <p className="text-xs text-muted-foreground">Last 7 days</p>
             </CardContent>
@@ -675,10 +694,26 @@ export default function Dashboard() {
                   <Filter className="h-4 w-4 mr-2" />
                   Filter Expenses
                 </Button>
-                <Button variant="outline" className="w-full bg-transparent">
+                {/* <Button variant="outline" className="w-full bg-transparent">
                   <Download className="h-4 w-4 mr-2" />
                   Export Data
-                </Button>
+                </Button> */}
+
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="w-full bg-transparent">
+                      <Download className="h-4 w-4 mr-2" />
+                      Export
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>Export Options</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={() => handleExport("daily")}>Daily Expenses</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleExport("monthly")}>Monthly Expenses</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleExport("yearly")}>Yearly Expenses</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </CardContent>
             </Card>
 
@@ -699,7 +734,7 @@ export default function Dashboard() {
                         <div className="flex-1">
                           <div className="flex justify-between text-sm">
                             <span>{cat.category}</span>
-                            <span>${cat.total.toFixed(2)}</span>
+                            <span>{cat.total.toFixed(2)} Rs</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
                             <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${cat.percentage}%` }}></div>
@@ -751,7 +786,7 @@ export default function Dashboard() {
                       </div>
                       <div className="flex items-center space-x-2">
                         <div className="text-right">
-                          <div className="font-semibold">${expense.amount.toFixed(2)}</div>
+                          <div className="font-semibold">{expense.amount.toFixed(2)} Rs</div>
                         </div>
                       </div>
                     </div>
@@ -821,7 +856,7 @@ export default function Dashboard() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="text-right">
-                      <div className="font-semibold">${expense.amount.toFixed(2)}</div>
+                      <div className="font-semibold">{expense.amount.toFixed(2)} Rs</div>
                     </div>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>

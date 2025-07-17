@@ -75,11 +75,11 @@ export function YearlyChart({ onBarClick }) {
       <div className="grid grid-cols-3 gap-4">
         <div>
           <p className="text-sm text-muted-foreground">Total (7 years)</p>
-          <p className="text-2xl font-bold">${totalExpenses.toFixed(2)}</p>
+          <p className="text-2xl font-bold">{totalExpenses.toFixed(2)} Rs</p>
         </div>
         <div>
           <p className="text-sm text-muted-foreground">Yearly Average</p>
-          <p className="text-2xl font-bold">${yearlyAverage.toFixed(2)}</p>
+          <p className="text-2xl font-bold">{yearlyAverage.toFixed(2)} Rs</p>
         </div>
         <div>
           <p className="text-sm text-muted-foreground">Year-over-Year</p>
@@ -108,8 +108,8 @@ export function YearlyChart({ onBarClick }) {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>
             <XAxis dataKey="year" tickLine={false} axisLine={false} className="text-xs" />
-            <YAxis tickLine={false} axisLine={false} className="text-xs" tickFormatter={(value) => `$${value}`} />
-            <ChartTooltip content={<ChartTooltipContent />} formatter={(value) => [`$${value}`, "Yearly Expenses"]} />
+            <YAxis tickLine={false} axisLine={false} className="text-xs" tickFormatter={(value) => `${value} Rs`} />
+            <ChartTooltip content={<ChartTooltipContent />} formatter={(value) => [`${value} Rs `, "Yearly Expenses"]} />
             <Bar
               dataKey="total"
               fill="var(--color-total)"

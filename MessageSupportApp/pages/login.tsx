@@ -34,7 +34,7 @@ export default function LoginScreen({ navigation }: any) {
       console.log("hit fetch")
       console.log("------------------------------------------")
 
-      const response = await fetch('http://192.168.1.35:3000/person/applogin', {
+      const response = await fetch('http://192.168.0.169:3000/person/applogin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
