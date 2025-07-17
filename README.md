@@ -42,15 +42,6 @@ The Automatic Expense Tracker is a comprehensive solution designed to simplify p
 
 ---
 
-## Message Support App
-
-The mobile message support app is the backbone of the automatic tracking feature. It intelligently parses incoming text messages (e.g., bank alerts, transaction confirmations) to extract expense details, ensuring that every transaction is recorded without manual input.
-
-![Message Support App Screenshot 1](Readme_Images/RM-L.jpeg)
-![Message Support App Screenshot 2](Readme_Images/RN-M.jpeg)
-
----
-
 ## Web UI
 
 The web user interface provides a powerful and user-friendly platform for visualizing and managing your expenses. Gain deep insights into your spending with dynamic charts and clear data representations.
@@ -85,3 +76,12 @@ Dive into specific periods with detailed graphs, allowing you to pinpoint spendi
 For advanced analysis or external record-keeping, the platform offers the convenience of exporting all your expense data into an Excel file.
 
 ![Excel Download Feature](Readme_Images/D3.png)
+
+---
+
+## Message Support App
+
+The mobile message support app is the backbone of the automatic tracking feature. It intelligently parses incoming text messages (e.g., bank alerts, transaction confirmations) to extract expense details, ensuring that every transaction is recorded without manual input.
+
+![Message Support App Screenshot 1](Readme_Images/RM-L.jpeg)
+![Message Support App Screenshot 2](Readme_Images/RN-M.jpeg)
