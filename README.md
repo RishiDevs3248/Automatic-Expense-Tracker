@@ -23,8 +23,7 @@ cd fronMessageSupportAppend
 npm install
 npx react-native run-android
 ```
-##### Note - 
-you need to have a physical mobile device and developers option enabled with USB debugging
+##### Note - you need to have a physical mobile device and developers option enabled with USB debugging
 ---
 
 # Automatic Expense Tracker
