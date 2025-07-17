@@ -46,8 +46,8 @@ The Automatic Expense Tracker is a comprehensive solution designed to simplify p
 
 The mobile message support app is the backbone of the automatic tracking feature. It intelligently parses incoming text messages (e.g., bank alerts, transaction confirmations) to extract expense details, ensuring that every transaction is recorded without manual input.
 
-![Message Support App Screenshot 1](RM-L.jpeg)
-![Message Support App Screenshot 2](RN-M.jpeg)
+![Message Support App Screenshot 1](Readme_Images/RM-L.jpeg)
+![Message Support App Screenshot 2](Readme_Images/RN-M.jpeg)
 
 ---
 
@@ -59,24 +59,24 @@ The web user interface provides a powerful and user-friendly platform for visual
 
 Visualize your total spending over different timeframes, helping you quickly grasp your financial health.
 
-![Web UI Dashboard 1](L1.png)
-![Web UI Dashboard 2](L2.png)
-![Web UI Dashboard 3](L3.png)
-![Web UI Dashboard 4](L4.png)
+![Web UI Dashboard 1](Readme_Images/L1.png)
+![Web UI Dashboard 2](Readme_Images/L2.png)
+![Web UI Dashboard 3](Readme_Images/L3.png)
+![Web UI Dashboard 4](Readme_Images/L4.png)
 
 ### Login and Registration
 
 Secure access to your financial data with a streamlined login and registration process.
 
-![Web UI Login Page](LO1.png)
-![Web UI Registration Page](R.png)
+![Web UI Login Page](Readme_Images/LO1.png)
+![Web UI Registration Page](Readme_Images/R.png)
 
 ### Detailed Expense Views
 
 Dive into specific periods with detailed graphs, allowing you to pinpoint spending spikes or trends.
 
-![Web UI Detailed View 1](D1.png)
-![Web UI Detailed View 2](D2-1.png)
+![Web UI Detailed View 1](Readme_Images/D1.png)
+![Web UI Detailed View 2](Readme_Images/D2-1.png)
 
 ---
 
@@ -84,4 +84,4 @@ Dive into specific periods with detailed graphs, allowing you to pinpoint spendi
 
 For advanced analysis or external record-keeping, the platform offers the convenience of exporting all your expense data into an Excel file.
 
-![Excel Download Feature](D3.png)
+![Excel Download Feature](Readme_Images/D3.png)
