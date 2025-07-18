@@ -7,6 +7,10 @@ This README provides step-by-step instructions for setting up the environment to
 ```
 cd backend
 npm install
+```
+database_Connection_link = "Your_DB_Connection_URL" # default - mongodb://127.0.0.1:27017/ExpenceTrackerDB
+JWT_SECRET_KEY = "Any_String" # Secret string that helps to encrypt the token. 
+```
 node server.js
 ```
 ---
@@ -21,6 +25,7 @@ npm run dev
 ```
 cd fronMessageSupportAppend
 npm install
+create .env in root folder
 npx react-native run-android
 ```
 ##### Note - you need to have a physical mobile device and developers option enabled with USB debugging
