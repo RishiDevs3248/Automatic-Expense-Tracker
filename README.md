@@ -8,7 +8,7 @@ This README provides step-by-step instructions for setting up the environment to
 cd backend
 npm install
 ```
-<pre lang="markdown"> <code>env database_Connection_link = "Your_DB_Connection_URL" # default - mongodb://127.0.0.1:27017/ExpenceTrackerDB
+<pre lang="markdown"> <code>database_Connection_link = "Your_DB_Connection_Link" # default - mongodb://127.0.0.1:27017/ExpenceTrackerDB
 JWT_SECRET_KEY = "Any_String" # Secret string that helps to encrypt the token. </code></pre>
 ```
 node server.js
